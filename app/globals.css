@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Gereb brand: kept from gerebtechnologies.com ---- */
+  --color-green: #198450; /* primary brand green */
+  --color-green-2: #0f6b3e;
+  --color-night: #161a16; /* brand dark */
+  --color-forest: #0d130f; /* deep section bg */
+  --color-mint: #22f588; /* electric accent */
+  --color-sage: #599673;
+  --color-mist: #f0f4f1; /* light section bg */
+  --color-paper: #ffffff;
+  --color-smoke: #47594e; /* muted text on light */
+  --color-fog: #a7bfae; /* muted text on dark */
+
+  --font-display: var(--font-syne);
+  --font-sans: var(--font-manrope);
+}
+
+:root {
+  --hairline-dark: rgba(34, 245, 136, 0.14);
+  --hairline-light: rgba(22, 26, 22, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-forest);
+  color: var(--color-paper);
+  font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-mint);
+  color: var(--color-night);
+}
+
+/* ---------- dotted map grid for dark sections ---------- */
+.map-grid {
+  background-image: radial-gradient(
+    rgba(34, 245, 136, 0.13) 1px,
+    transparent 1px
+  );
+  background-size: 26px 26px;
+}
+
+/* ---------- glow orb helper ---------- */
+.glow {
+  background: radial-gradient(
+    circle,
+    rgba(25, 132, 80, 0.55),
+    rgba(34, 245, 136, 0.12) 45%,
+    transparent 70%
+  );
+  filter: blur(30px);
+}
+
+/* ---------- page-load stagger ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim {
+  opacity: 0;
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.anim-1 { animation-delay: 0.05s; }
+.anim-2 { animation-delay: 0.18s; }
+.anim-3 { animation-delay: 0.31s; }
+.anim-4 { animation-delay: 0.44s; }
+.anim-5 { animation-delay: 0.57s; }
+.anim-6 { animation-delay: 0.7s; }
+
+/* ---------- scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- marquee ---------- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 26s linear infinite;
+}
+
+/* ---------- delivery route animation (hero) ---------- */
+.route-path {
+  stroke-dasharray: 8 10;
+  animation: routeDash 1.4s linear infinite;
+}
+@keyframes routeDash {
+  to { stroke-dashoffset: -18; }
+}
+
+.route-dot {
+  offset-path: path(
+    "M20 175 C 90 40, 190 220, 290 90 S 420 60, 470 30"
+  );
+  animation: routeMove 7s cubic-bezier(0.45, 0, 0.35, 1) infinite;
+}
+@keyframes routeMove {
+  0% { offset-distance: 0%; }
+  100% { offset-distance: 100%; }
+}
+
+/* ---------- ping marker ---------- */
+@keyframes ping {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+.ping::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: currentColor;
+  animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ---------- slow float ---------- */
+@keyframes drift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.drift {
+  animation: drift 6.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim, .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .marquee-track, .drift, .route-path, .route-dot, .ping::after {
+    animation: none !important;
+  }
+}
