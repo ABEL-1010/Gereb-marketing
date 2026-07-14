@@ -98,28 +98,29 @@ export default function Header() {
         </button>
       </div>
 
-      {/* mobile menu */}
-      {open && (
-        <nav className="flex flex-col gap-1 border-t border-[var(--hairline-dark)] bg-forest px-5 pb-6 pt-3 md:hidden">
-          {links.map((l) => (
+        {/* mobile menu */}
+        {open && (
+          <nav className="flex flex-col gap-1 border-t border-white/10 px-5 pb-6 pt-3 md:hidden">
+            {links.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className={`rounded-lg px-3 py-3 text-lg ${
+                  pathname === l.href ? "text-mint" : "text-paper"
+                }`}
+              >
+                {l.label}
+              </Link>
+            ))}
             <Link
-              key={l.href}
-              href={l.href}
-              className={`rounded-lg px-3 py-3 text-lg ${
-                pathname === l.href ? "text-mint" : "text-paper"
-              }`}
+              href="/contact"
+              className="mt-2 rounded-full bg-green px-5 py-3 text-center font-bold text-paper"
             >
-              {l.label}
+              Start a project
             </Link>
-          ))}
-          <Link
-            href="/contact"
-            className="mt-2 rounded-full bg-green px-5 py-3 text-center font-bold text-paper"
-          >
-            Start a project
-          </Link>
-        </nav>
-      )}
+          </nav>
+        )}
+      </div>
     </header>
   );
 }
