@@ -28,14 +28,15 @@ export default function Header() {
   }, [pathname]);
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled || open
-          ? "bg-forest/90 backdrop-blur-md shadow-[0_1px_0_var(--hairline-dark)]"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+    <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6">
+      <div
+        className={`mx-auto max-w-6xl overflow-hidden rounded-2xl border backdrop-blur-xl transition-all duration-300 ${
+          scrolled || open
+            ? "border-white/15 bg-forest/75 shadow-lg shadow-night/30"
+            : "border-white/10 bg-white/5"
+        }`}
+      >
+        <div className="flex items-center justify-between px-5 py-3.5 sm:px-6">
         <Link href="/" className="group flex items-center gap-2.5">
           {/* route-pin mark */}
           <span className="grid h-9 w-9 place-items-center rounded-xl bg-green text-mint transition-colors group-hover:bg-mint group-hover:text-night">
