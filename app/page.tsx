@@ -3,14 +3,14 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 
 const partners = [
-  { name: "telebirr", src: "/logos/telebirr.png" },
+  { name: "telebirr", src: "/logos/telebirr-clean.png" },
   { name: "Chapa", src: "/logos/chapa-clean.png" },
-  { name: "ArifPay", src: "/logos/arifpay.png" },
+  { name: "ArifPay", src: "/logos/arifpay-clean.png" },
   { name: "Chanoly Noodles", src: "/logos/Chanoly.png" },
   { name: "Amrogn Chicken", src: "/logos/Amrogn.png" },
   {
     name: "Ministry of Innovation & Technology",
-    src: "/logos/ministry-innovation.png",
+    src: "/logos/ministry-innovation-clean.png",
   },
   { name: "Ministry of Tourism", src: "/logos/ministry-tourism-clean.png" },
 ];
@@ -178,41 +178,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= TRUSTED BY ================= */}
-      <section className="relative border-b border-[var(--hairline-dark)]">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
+      {/* ================= SERVICES BENTO ================= */}
+      <section className="bg-mist text-night">
+        <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
+          {/* ---------- trusted by ---------- */}
           <Reveal>
-            <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-fog">
+            <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-smoke">
               Trusted by leading businesses &amp; institutions
             </p>
           </Reveal>
           <Reveal delay={100}>
             <div className="relative mt-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
-              <div className="marquee-track flex w-max items-center gap-5">
+              <div className="marquee-track flex w-max items-center gap-16">
                 {[...partners, ...partners].map((p, i) => (
-                  <div
+                  <Image
                     key={i}
-                    className="flex h-24 w-48 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-paper px-7 transition-transform duration-300 hover:scale-105"
+                    src={p.src}
+                    alt={p.name}
                     title={p.name}
-                  >
-                    <Image
-                      src={p.src}
-                      alt={p.name}
-                      width={160}
-                      height={64}
-                      className="h-14 w-auto object-contain"
-                    />
-                  </div>
+                    width={160}
+                    height={64}
+                    className="h-12 w-auto shrink-0 object-contain transition-transform duration-300 hover:scale-110 sm:h-14"
+                  />
                 ))}
               </div>
             </div>
           </Reveal>
-        </div>
-      </section>
 
-      {/* ================= SERVICES BENTO ================= */}
-      <section className="bg-mist text-night">
-        <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
+          <div className="mt-24" />
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div>
