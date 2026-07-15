@@ -172,7 +172,7 @@ export default function Services() {
       {/* ---------- hero ---------- */}
       <section className="map-grid relative overflow-hidden">
         <div aria-hidden className="glow absolute -top-24 left-[15%] h-80 w-80" />
-        <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-16 sm:px-8 md:pt-24">
+        <div className="relative mx-auto max-w-7xl px-5 pb-20 pt-16 sm:px-6 md:pt-24">
           <p className="anim anim-1 text-xs font-bold uppercase tracking-[0.2em] text-mint">
             Our Services
           </p>
@@ -193,7 +193,7 @@ export default function Services() {
 
       {/* ---------- two divisions ---------- */}
       <section className="relative border-t border-[var(--hairline-dark)]">
-        <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6">
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-mint">
               Two integrated divisions
@@ -255,7 +255,7 @@ export default function Services() {
 
       {/* ---------- 9 service cards ---------- */}
       <section className="bg-mist text-night">
-        <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6">
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-green">
               What we do
@@ -293,7 +293,7 @@ export default function Services() {
 
       {/* ---------- process ---------- */}
       <section className="map-grid relative">
-        <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6">
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-mint">
               How we work

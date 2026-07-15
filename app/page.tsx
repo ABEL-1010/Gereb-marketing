@@ -15,14 +15,7 @@ const partners = [
   { name: "Ministry of Tourism", src: "/logos/ministry-tourism-clean.png" },
 ];
 
-const tickerItems = [
-  "Websites",
-  "Mobile apps",
-  "Gereb Delivery",
-  "Network infrastructure",
-  "Branding",
-  "UI/UX design",
-];
+
 
 const portfolio = [
   {
@@ -59,7 +52,7 @@ export default function Home() {
         <div aria-hidden className="glow absolute -top-32 left-1/4 h-96 w-96" />
         <div aria-hidden className="glow absolute right-[-8%] top-1/3 h-80 w-80" />
 
-        <div className="relative mx-auto grid max-w-6xl gap-14 px-5 pb-24 pt-16 sm:px-8 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:pt-24">
+        <div className="relative mx-auto grid max-w-7xl gap-14 px-5 pb-24 pt-16 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:pt-24">
           <div>
             <p className="anim anim-1 inline-flex items-center gap-2 rounded-full border border-[var(--hairline-dark)] bg-night/60 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-fog backdrop-blur-sm">
               <span className="relative h-1.5 w-1.5 rounded-full bg-mint text-mint ping" />
@@ -161,26 +154,12 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ticker */}
-        <div className="relative overflow-hidden border-y border-[var(--hairline-dark)] bg-night py-3.5">
-          <div className="marquee-track flex w-max gap-10 whitespace-nowrap">
-            {[...tickerItems, ...tickerItems, ...tickerItems, ...tickerItems].map(
-              (item, i) => (
-                <span
-                  key={i}
-                  className="flex items-center gap-10 font-display text-sm font-bold tracking-wide text-fog"
-                >
-                  {item} <span className="text-mint">✦</span>
-                </span>
-              )
-            )}
-          </div>
-        </div>
+        
       </section>
 
       {/* ================= SERVICES BENTO ================= */}
       <section className="bg-mist text-night">
-        <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6">
           {/* ---------- trusted by ---------- */}
           <Reveal>
             <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-smoke">
@@ -295,7 +274,7 @@ export default function Home() {
       {/* ================= GEREB DELIVERY SHOWCASE ================= */}
       <section className="map-grid relative overflow-hidden">
         <div aria-hidden className="glow absolute bottom-0 left-[-5%] h-96 w-96" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 py-24 sm:px-8 lg:grid-cols-2">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 py-24 sm:px-6 lg:grid-cols-2">
           <Reveal>
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-mint">
@@ -420,7 +399,7 @@ export default function Home() {
 
       {/* ================= PORTFOLIO ================= */}
       <section className="bg-mist text-night">
-        <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6">
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-green">
               Selected work
@@ -461,7 +440,7 @@ export default function Home() {
       </section>
 
       {/* ================= CTA ================= */}
-      <section className="map-grid relative overflow-hidden px-5 py-28 sm:px-8">
+      <section className="map-grid relative overflow-hidden px-5 py-28 sm:px-6">
         <div
           aria-hidden
           className="glow absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2"

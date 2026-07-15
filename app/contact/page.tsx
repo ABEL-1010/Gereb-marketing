@@ -12,7 +12,7 @@ export default function Contact() {
     <section className="map-grid relative overflow-hidden">
       <div aria-hidden className="glow absolute -top-24 right-[10%] h-80 w-80" />
 
-      <div className="relative mx-auto max-w-6xl px-5 pb-24 pt-16 sm:px-8 md:pt-24">
+      <div className="relative mx-auto max-w-7xl px-5 pb-24 pt-16 sm:px-6 md:pt-24">
         <p className="anim anim-1 text-xs font-bold uppercase tracking-[0.2em] text-mint">
           Contact
         </p>

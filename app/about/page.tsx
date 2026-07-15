@@ -86,7 +86,7 @@ export default function About() {
       {/* ---------- hero ---------- */}
       <section className="map-grid relative overflow-hidden">
         <div aria-hidden className="glow absolute -top-24 right-[10%] h-80 w-80" />
-        <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-16 sm:px-8 md:pt-24">
+        <div className="relative mx-auto max-w-7xl px-5 pb-20 pt-16 sm:px-6 md:pt-24">
           <p className="anim anim-1 text-xs font-bold uppercase tracking-[0.2em] text-mint">
             About us
           </p>
@@ -107,7 +107,7 @@ export default function About() {
 
       {/* ---------- who we are ---------- */}
       <section className="bg-mist text-night">
-        <div className="mx-auto grid max-w-6xl gap-14 px-5 py-24 sm:px-8 md:grid-cols-2">
+        <div className="mx-auto grid max-w-7xl gap-14 px-5 py-24 sm:px-6 md:grid-cols-2">
           <Reveal>
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-green">
@@ -148,7 +148,7 @@ export default function About() {
 
       {/* ---------- vision / mission / value ---------- */}
       <section className="map-grid relative">
-        <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6">
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-mint">
               What drives us
@@ -184,7 +184,7 @@ export default function About() {
 
       {/* ---------- six core values ---------- */}
       <section className="bg-mist text-night">
-        <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div>
@@ -230,7 +230,7 @@ export default function About() {
       </section>
 
       {/* ---------- CTA ---------- */}
-      <section className="map-grid relative overflow-hidden px-5 py-24 text-center sm:px-8">
+      <section className="map-grid relative overflow-hidden px-5 py-24 text-center sm:px-6">
         <div
           aria-hidden
           className="glow absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2"

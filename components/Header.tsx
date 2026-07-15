@@ -30,7 +30,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6">
       <div
-        className={`mx-auto max-w-6xl overflow-hidden rounded-2xl border backdrop-blur-xl transition-all duration-300 ${
+        className={`mx-auto max-w-7xl overflow-hidden rounded-2xl border backdrop-blur-xl transition-all duration-300 ${
           scrolled || open
             ? "border-white/15 bg-forest/75 shadow-lg shadow-night/30"
             : "border-white/10 bg-white/5"
