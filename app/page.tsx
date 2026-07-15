@@ -177,6 +177,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ================= TRUSTED BY ================= */}
+      <section className="relative border-b border-[var(--hairline-dark)]">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
+          <Reveal>
+            <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-fog">
+              Trusted by leading businesses &amp; institutions
+            </p>
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="relative mt-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
+              <div className="marquee-track flex w-max items-center gap-5">
+                {[...partners, ...partners].map((p, i) => (
+                  <div
+                    key={i}
+                    className="flex h-24 w-48 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-paper px-7 transition-transform duration-300 hover:scale-105"
+                    title={p.name}
+                  >
+                    <Image
+                      src={p.src}
+                      alt={p.name}
+                      width={160}
+                      height={64}
+                      className="h-14 w-auto object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ================= SERVICES BENTO ================= */}
       <section className="bg-mist text-night">
         <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
