@@ -4,14 +4,15 @@ import Reveal from "@/components/Reveal";
 
 const partners = [
   { name: "telebirr", src: "/logos/telebirr.png" },
+  { name: "Chapa", src: "/logos/chapa-clean.png" },
   { name: "ArifPay", src: "/logos/arifpay.png" },
-  { name: "Chanoly Noodles", src: "/logos/chanoly.jpeg" },
-  { name: "Amrogn Chicken", src: "/logos/amrogn.jpeg" },
+  { name: "Chanoly Noodles", src: "/logos/Chanoly.png" },
+  { name: "Amrogn Chicken", src: "/logos/Amrogn.png" },
   {
     name: "Ministry of Innovation & Technology",
     src: "/logos/ministry-innovation.png",
   },
-  { name: "Ministry of Tourism", src: "/logos/ministry-tourism.jpeg" },
+  { name: "Ministry of Tourism", src: "/logos/ministry-tourism-clean.png" },
 ];
 
 const tickerItems = [
