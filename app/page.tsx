@@ -1,5 +1,18 @@
+import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+
+const partners = [
+  { name: "telebirr", src: "/logos/telebirr.png" },
+  { name: "ArifPay", src: "/logos/arifpay.png" },
+  { name: "Chanoly Noodles", src: "/logos/chanoly.jpeg" },
+  { name: "Amrogn Chicken", src: "/logos/amrogn.jpeg" },
+  {
+    name: "Ministry of Innovation & Technology",
+    src: "/logos/ministry-innovation.png",
+  },
+  { name: "Ministry of Tourism", src: "/logos/ministry-tourism.jpeg" },
+];
 
 const tickerItems = [
   "Websites",
