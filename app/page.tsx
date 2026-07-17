@@ -176,7 +176,7 @@ export default function Home() {
                 }))}
                 speed={50}
                 direction="left"
-                logoHeight={48}
+                logoHeight={64}
                 gap={64}
                 pauseOnHover
                 scaleOnHover
