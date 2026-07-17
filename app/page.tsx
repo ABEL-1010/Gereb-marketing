@@ -107,49 +107,115 @@ export default function Home() {
             </dl>
           </div>
 
-          {/* animated delivery route */}
-          <div className="anim anim-4 relative hidden lg:block">
-            <svg
-              viewBox="0 0 490 240"
-              className="w-full overflow-visible"
-              aria-hidden
-            >
-              {/* route */}
-              <path
-                d="M20 175 C 90 40, 190 220, 290 90 S 420 60, 470 30"
-                fill="none"
-                stroke="#198450"
-                strokeWidth="2.5"
-                className="route-path"
-              />
-              {/* origin + destination pins */}
-              <circle cx="20" cy="175" r="7" fill="#22f588" />
-              <circle cx="20" cy="175" r="14" fill="#22f588" opacity="0.15" />
-              <circle cx="470" cy="30" r="7" fill="#22f588" />
-              <circle cx="470" cy="30" r="14" fill="#22f588" opacity="0.15" />
-            </svg>
-            {/* moving package dot */}
-            <div className="route-dot absolute left-0 top-0 h-4 w-4 rounded-full bg-mint shadow-[0_0_18px_rgba(34,245,136,0.9)]" />
+          {/* layered product mockup: Gereb Delivery app + deploy terminal + live stats */}
+          <div className="anim anim-4 relative mx-auto hidden w-full max-w-md lg:block" aria-hidden>
+            {/* ambient glow */}
+            <div className="glow absolute -top-14 right-2 h-72 w-72 rounded-full" />
 
-            {/* floating status cards */}
-            <div className="drift absolute -top-8 right-8 rounded-2xl border border-[var(--hairline-dark)] bg-night/85 px-5 py-4 backdrop-blur-sm">
-              <p className="text-xs uppercase tracking-wider text-fog">
-                Order #2481
-              </p>
-              <p className="mt-1 font-display text-sm font-bold text-mint">
-                ✓ Delivered in 24 min
-              </p>
+            {/* deploy terminal (back layer — the studio side) */}
+            <div className="absolute -left-2 top-12 w-72 -rotate-3 rounded-2xl border border-[var(--hairline-dark)] bg-night/90 p-5 shadow-2xl shadow-black/40 backdrop-blur-sm">
+              <div className="flex items-center gap-1.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+                <span className="ml-3 text-[10px] font-bold uppercase tracking-wider text-fog">
+                  gereb — deploy
+                </span>
+              </div>
+              <div className="mt-4 space-y-1.5 font-mono text-[11px] leading-5 text-fog">
+                <p>$ next build &amp;&amp; gereb deploy</p>
+                <p className="text-sage">▸ building client-site v2.0 …</p>
+                <p className="text-mint">✓ deployed to production</p>
+                <p className="blink text-mint">▍</p>
+              </div>
             </div>
+
+            {/* phone — Gereb Delivery live tracking (front layer) */}
+            <div className="drift relative z-10 ml-auto mr-2 w-64 rotate-[3deg] rounded-[2.4rem] border border-[var(--hairline-dark)] bg-night p-2.5 shadow-2xl shadow-black/50">
+              <div className="overflow-hidden rounded-[1.9rem] bg-forest">
+                {/* app bar */}
+                <div className="flex items-center justify-between px-4 pb-2 pt-3">
+                  <p className="font-display text-xs font-bold text-paper">
+                    Gereb <span className="text-mint">Delivery</span>
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-mint/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-mint">
+                    <span className="relative h-1 w-1 rounded-full bg-mint text-mint ping" />
+                    Live
+                  </span>
+                </div>
+
+                {/* map with rider en route */}
+                <div className="map-grid relative h-36 bg-gradient-to-br from-green/25 via-forest to-night">
+                  <svg viewBox="0 0 256 144" className="absolute inset-0 h-full w-full">
+                    <path
+                      d="M18 118 C 70 40, 150 130, 238 34"
+                      fill="none"
+                      stroke="#198450"
+                      strokeWidth="2.5"
+                      className="route-path"
+                    />
+                    <circle cx="18" cy="118" r="5" fill="#22f588" />
+                    <circle cx="18" cy="118" r="10" fill="#22f588" opacity="0.15" />
+                    <circle cx="238" cy="34" r="5" fill="#22f588" />
+                    <circle cx="238" cy="34" r="10" fill="#22f588" opacity="0.15" />
+                  </svg>
+                  <span className="ping absolute left-[118px] top-[76px] h-2.5 w-2.5 rounded-full bg-mint text-mint shadow-[0_0_14px_rgba(34,245,136,0.9)]" />
+                </div>
+
+                {/* order status */}
+                <div className="px-4 pb-4 pt-3">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-[10px] uppercase tracking-wider text-fog">
+                        Order #2481
+                      </p>
+                      <p className="mt-0.5 font-display text-sm font-bold text-paper">
+                        Chanoly Noodles
+                      </p>
+                    </div>
+                    <span className="rounded-full bg-mint px-2.5 py-1 font-display text-[11px] font-bold text-night">
+                      12 min
+                    </span>
+                  </div>
+                  <div className="mt-3 h-1 overflow-hidden rounded-full bg-night">
+                    <div className="eta-fill h-full rounded-full bg-mint" />
+                  </div>
+                  <div className="mt-2 flex justify-between text-[9px] font-bold uppercase tracking-wider">
+                    <span className="text-mint">✓ Picked up</span>
+                    <span className="text-mint">On the way</span>
+                    <span className="text-fog">Delivered</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* live stats (floating front card) */}
             <div
-              className="drift absolute -bottom-10 left-6 rounded-2xl border border-[var(--hairline-dark)] bg-night/85 px-5 py-4 backdrop-blur-sm"
+              className="drift absolute -bottom-9 left-6 z-20 rounded-2xl border border-[var(--hairline-dark)] bg-night/85 px-5 py-4 backdrop-blur-sm"
               style={{ animationDelay: "1.4s" }}
             >
-              <p className="text-xs uppercase tracking-wider text-fog">
-                client-site v2.0
-              </p>
-              <p className="mt-1 font-display text-sm font-bold text-mint">
-                ✓ Deployed to production
-              </p>
+              <div className="flex items-end justify-between gap-8">
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider text-fog">
+                    Orders this week
+                  </p>
+                  <p className="mt-1 font-display text-lg font-bold text-mint">
+                    +18%
+                  </p>
+                </div>
+                <div className="flex items-end gap-1">
+                  {[10, 16, 12, 22, 18, 28, 34].map((h, i) => (
+                    <span
+                      key={i}
+                      className="sbar w-1.5 rounded-t-sm bg-green"
+                      style={{
+                        height: `${h}px`,
+                        animationDelay: `${0.9 + i * 0.12}s`,
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
