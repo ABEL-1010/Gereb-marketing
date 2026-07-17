@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import LogoLoop from "@/components/LogoLoop";
 
 const partners = [
   { name: "telebirr", src: "/logos/telebirr-clean.png" },
@@ -167,20 +167,23 @@ export default function Home() {
             </p>
           </Reveal>
           <Reveal delay={100}>
-            <div className="relative mt-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
-              <div className="marquee-track flex w-max items-center gap-16">
-                {[...partners, ...partners].map((p, i) => (
-                  <Image
-                    key={i}
-                    src={p.src}
-                    alt={p.name}
-                    title={p.name}
-                    width={160}
-                    height={64}
-                    className="h-12 w-auto shrink-0 object-contain transition-transform duration-300 hover:scale-110 sm:h-14"
-                  />
-                ))}
-              </div>
+            <div className="mt-10">
+              <LogoLoop
+                logos={partners.map((p) => ({
+                  src: p.src,
+                  alt: p.name,
+                  title: p.name,
+                }))}
+                speed={50}
+                direction="left"
+                logoHeight={48}
+                gap={64}
+                pauseOnHover
+                scaleOnHover
+                fadeOut
+                fadeOutColor="#f0f4f1"
+                ariaLabel="Trusted businesses and institutions"
+              />
             </div>
           </Reveal>
 
