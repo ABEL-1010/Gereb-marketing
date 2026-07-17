@@ -66,8 +66,9 @@ export default function Home() {
             </h1>
 
             <p className="anim anim-3 mt-6 max-w-md text-lg leading-relaxed text-fog">
-              Literally. We run Gereb Delivery across two cities — and we build
-              the websites, apps and networks that power businesses like yours.
+              Web platforms, mobile apps, dashboards and networks — designed,
+              built and run by one studio. Our own Gereb Delivery runs on them
+              every day, and so can your business.
             </p>
 
             <div className="anim anim-4 mt-9 flex flex-wrap items-center gap-4">
@@ -107,114 +108,135 @@ export default function Home() {
             </dl>
           </div>
 
-          {/* layered product mockup: Gereb Delivery app + deploy terminal + live stats */}
+          {/* layered systems mockup: web console + mobile app + deploy terminal */}
           <div className="anim anim-4 relative mx-auto hidden w-full max-w-md lg:block" aria-hidden>
             {/* ambient glow */}
             <div className="glow absolute -top-14 right-2 h-72 w-72 rounded-full" />
 
-            {/* deploy terminal (back layer — the studio side) */}
-            <div className="absolute -left-2 top-12 w-72 -rotate-3 rounded-2xl border border-[var(--hairline-dark)] bg-night/90 p-5 shadow-2xl shadow-black/40 backdrop-blur-sm">
-              <div className="flex items-center gap-1.5">
+            {/* status pill */}
+            <div
+              className="drift absolute -top-8 right-4 z-20 inline-flex items-center gap-2 rounded-full border border-[var(--hairline-dark)] bg-night/85 px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-mint backdrop-blur-sm"
+              style={{ animationDelay: "0.8s" }}
+            >
+              <span className="relative h-1.5 w-1.5 rounded-full bg-mint text-mint ping" />
+              All systems operational
+            </div>
+
+            {/* browser console — web platforms & dashboards (main layer) */}
+            <div className="-rotate-1 rounded-2xl border border-[var(--hairline-dark)] bg-night/90 shadow-2xl shadow-black/40 backdrop-blur-sm">
+              {/* title bar */}
+              <div className="flex items-center gap-1.5 border-b border-[var(--hairline-dark)] px-4 py-3">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-                <span className="ml-3 text-[10px] font-bold uppercase tracking-wider text-fog">
+                <span className="ml-3 rounded-md bg-forest px-3 py-1 font-mono text-[10px] text-fog">
+                  console.gereb.tech
+                </span>
+              </div>
+              <div className="flex">
+                {/* mini sidebar */}
+                <div className="flex flex-col items-center gap-2.5 border-r border-[var(--hairline-dark)] px-3 py-4">
+                  <span className="h-2 w-2 rounded-sm bg-mint" />
+                  <span className="h-2 w-2 rounded-sm bg-green/60" />
+                  <span className="h-2 w-2 rounded-sm bg-green/60" />
+                  <span className="h-2 w-2 rounded-sm bg-green/60" />
+                </div>
+                {/* dashboard body */}
+                <div className="flex-1 p-4">
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      ["Systems live", "12"],
+                      ["Uptime", "99.9%"],
+                      ["This week", "+24%"],
+                    ].map(([label, value]) => (
+                      <div
+                        key={label}
+                        className="rounded-lg bg-forest px-2.5 py-2"
+                      >
+                        <p className="text-[8px] uppercase tracking-wider text-fog">
+                          {label}
+                        </p>
+                        <p className="mt-0.5 font-display text-sm font-bold text-mint">
+                          {value}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-3 flex h-16 items-end gap-1.5 rounded-lg bg-forest p-2.5">
+                    {[14, 22, 18, 30, 24, 36, 28, 42, 34, 48].map((h, i) => (
+                      <span
+                        key={i}
+                        className={`sbar w-full rounded-t-sm ${
+                          i === 9 ? "bg-mint" : "bg-green"
+                        }`}
+                        style={{
+                          height: `${h}px`,
+                          animationDelay: `${0.7 + i * 0.08}s`,
+                        }}
+                      />
+                    ))}
+                  </div>
+                  <div className="mt-3 space-y-1.5">
+                    {[
+                      ["orders-api", "live"],
+                      ["payments", "live"],
+                    ].map(([svc, state]) => (
+                      <div
+                        key={svc}
+                        className="flex items-center justify-between rounded-lg bg-forest px-2.5 py-1.5"
+                      >
+                        <span className="font-mono text-[9px] text-fog">
+                          {svc}
+                        </span>
+                        <span className="text-[8px] font-bold uppercase tracking-wider text-mint">
+                          ● {state}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* phone — mobile apps (front right) */}
+            <div className="drift absolute -bottom-12 -right-3 z-10 w-36 rotate-[4deg] rounded-[1.8rem] border border-[var(--hairline-dark)] bg-night p-2 shadow-2xl shadow-black/50">
+              <div className="overflow-hidden rounded-[1.4rem] bg-forest p-3">
+                <div className="flex items-center gap-2">
+                  <span className="h-5 w-5 rounded-full bg-green/50" />
+                  <div className="space-y-1">
+                    <span className="block h-1.5 w-14 rounded-full bg-paper/25" />
+                    <span className="block h-1.5 w-9 rounded-full bg-paper/10" />
+                  </div>
+                </div>
+                <div className="map-grid mt-3 h-12 rounded-lg bg-gradient-to-br from-green/30 to-night" />
+                <div className="mt-2 space-y-1.5">
+                  <span className="block h-5 rounded-md bg-night/70" />
+                  <span className="block h-5 rounded-md bg-night/70" />
+                </div>
+                <span className="mt-3 block rounded-full bg-mint py-1.5 text-center font-display text-[9px] font-bold text-night">
+                  Get started
+                </span>
+              </div>
+            </div>
+
+            {/* deploy terminal — infrastructure (front left) */}
+            <div
+              className="drift absolute -bottom-14 -left-2 z-20 w-60 -rotate-2 rounded-2xl border border-[var(--hairline-dark)] bg-night/90 p-4 shadow-2xl shadow-black/40 backdrop-blur-sm"
+              style={{ animationDelay: "1.4s" }}
+            >
+              <div className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
+                <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+                <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+                <span className="ml-2 text-[9px] font-bold uppercase tracking-wider text-fog">
                   gereb — deploy
                 </span>
               </div>
-              <div className="mt-4 space-y-1.5 font-mono text-[11px] leading-5 text-fog">
-                <p>$ next build &amp;&amp; gereb deploy</p>
-                <p className="text-sage">▸ building client-site v2.0 …</p>
-                <p className="text-mint">✓ deployed to production</p>
+              <div className="mt-3 space-y-1 font-mono text-[10px] leading-4 text-fog">
+                <p>$ gereb deploy --all</p>
+                <p className="text-sage">▸ web · mobile · network …</p>
+                <p className="text-mint">✓ 4 systems live</p>
                 <p className="blink text-mint">▍</p>
-              </div>
-            </div>
-
-            {/* phone — Gereb Delivery live tracking (front layer) */}
-            <div className="drift relative z-10 ml-auto mr-2 w-64 rotate-[3deg] rounded-[2.4rem] border border-[var(--hairline-dark)] bg-night p-2.5 shadow-2xl shadow-black/50">
-              <div className="overflow-hidden rounded-[1.9rem] bg-forest">
-                {/* app bar */}
-                <div className="flex items-center justify-between px-4 pb-2 pt-3">
-                  <p className="font-display text-xs font-bold text-paper">
-                    Gereb <span className="text-mint">Delivery</span>
-                  </p>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-mint/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-mint">
-                    <span className="relative h-1 w-1 rounded-full bg-mint text-mint ping" />
-                    Live
-                  </span>
-                </div>
-
-                {/* map with rider en route */}
-                <div className="map-grid relative h-36 bg-gradient-to-br from-green/25 via-forest to-night">
-                  <svg viewBox="0 0 256 144" className="absolute inset-0 h-full w-full">
-                    <path
-                      d="M18 118 C 70 40, 150 130, 238 34"
-                      fill="none"
-                      stroke="#198450"
-                      strokeWidth="2.5"
-                      className="route-path"
-                    />
-                    <circle cx="18" cy="118" r="5" fill="#22f588" />
-                    <circle cx="18" cy="118" r="10" fill="#22f588" opacity="0.15" />
-                    <circle cx="238" cy="34" r="5" fill="#22f588" />
-                    <circle cx="238" cy="34" r="10" fill="#22f588" opacity="0.15" />
-                  </svg>
-                  <span className="ping absolute left-[118px] top-[76px] h-2.5 w-2.5 rounded-full bg-mint text-mint shadow-[0_0_14px_rgba(34,245,136,0.9)]" />
-                </div>
-
-                {/* order status */}
-                <div className="px-4 pb-4 pt-3">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-[10px] uppercase tracking-wider text-fog">
-                        Order #2481
-                      </p>
-                      <p className="mt-0.5 font-display text-sm font-bold text-paper">
-                        Chanoly Noodles
-                      </p>
-                    </div>
-                    <span className="rounded-full bg-mint px-2.5 py-1 font-display text-[11px] font-bold text-night">
-                      12 min
-                    </span>
-                  </div>
-                  <div className="mt-3 h-1 overflow-hidden rounded-full bg-night">
-                    <div className="eta-fill h-full rounded-full bg-mint" />
-                  </div>
-                  <div className="mt-2 flex justify-between text-[9px] font-bold uppercase tracking-wider">
-                    <span className="text-mint">✓ Picked up</span>
-                    <span className="text-mint">On the way</span>
-                    <span className="text-fog">Delivered</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* live stats (floating front card) */}
-            <div
-              className="drift absolute -bottom-9 left-6 z-20 rounded-2xl border border-[var(--hairline-dark)] bg-night/85 px-5 py-4 backdrop-blur-sm"
-              style={{ animationDelay: "1.4s" }}
-            >
-              <div className="flex items-end justify-between gap-8">
-                <div>
-                  <p className="text-[10px] uppercase tracking-wider text-fog">
-                    Orders this week
-                  </p>
-                  <p className="mt-1 font-display text-lg font-bold text-mint">
-                    +18%
-                  </p>
-                </div>
-                <div className="flex items-end gap-1">
-                  {[10, 16, 12, 22, 18, 28, 34].map((h, i) => (
-                    <span
-                      key={i}
-                      className="sbar w-1.5 rounded-t-sm bg-green"
-                      style={{
-                        height: `${h}px`,
-                        animationDelay: `${0.9 + i * 0.12}s`,
-                      }}
-                    />
-                  ))}
-                </div>
               </div>
             </div>
           </div>
