@@ -22,25 +22,33 @@ const portfolio = [
     tag: "Product",
     title: "Gereb Delivery — User App",
     desc: "Food delivery for Ethiopia: browse restaurants, order in seconds, track your rider in real time.",
-    accent: "bg-green",
+    metric: ["1000+", "orders / month"],
+    stack: ["React Native", "Node.js", "PostgreSQL"],
+    kind: "app" as const,
   },
   {
     tag: "Product",
     title: "Gereb Admin Dashboard",
     desc: "The control room behind the fleet — live orders, driver dispatch, revenue analytics.",
-    accent: "bg-night",
+    metric: ["99.9%", "uptime"],
+    stack: ["Next.js", "TypeScript", "WebSockets"],
+    kind: "dashboard" as const,
   },
   {
     tag: "Client",
     title: "YIP — Young Innovators Platform",
-    desc: "Brand identity and web presence for a youth innovation program.",
-    accent: "bg-sage",
+    desc: "Brand identity and web presence for a youth innovation program reaching students nationwide.",
+    metric: ["Brand", "+ Web"],
+    stack: ["Next.js", "Figma", "Tailwind"],
+    kind: "web" as const,
   },
   {
     tag: "Client",
     title: "STEM for Girls",
     desc: "A campaign site that helps get more girls into science and technology education.",
-    accent: "bg-green-2",
+    metric: ["Brand", "+ Web"],
+    stack: ["Next.js", "Figma", "CMS"],
+    kind: "web" as const,
   },
 ];
 
@@ -492,36 +500,137 @@ export default function Home() {
       <section className="bg-mist text-night">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6">
           <Reveal>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-green">
-              Selected work
-            </p>
-            <h2 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-              Built by Gereb
-            </h2>
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-green">
+                  Selected work
+                </p>
+                <h2 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+                  Products, platforms
+                  <br />
+                  and brands we&apos;ve shipped.
+                </h2>
+              </div>
+              <p className="max-w-xs text-sm leading-relaxed text-smoke">
+                From our own delivery network to client platforms — built,
+                deployed and maintained end to end.
+              </p>
+            </div>
           </Reveal>
 
           <div className="mt-14 grid gap-5 sm:grid-cols-2">
             {portfolio.map((p, i) => (
               <Reveal key={p.title} delay={(i % 2) * 90}>
                 <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--hairline-light)] bg-paper transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-night/10">
-                  <div
-                    className={`relative h-40 ${p.accent} transition-transform duration-500`}
-                  >
-                    <div className="map-grid absolute inset-0 opacity-40" />
-                    <span className="absolute bottom-4 left-6 font-display text-5xl font-extrabold text-paper/25 transition-transform duration-300 group-hover:scale-110">
+                  {/* ---------- mockup preview ---------- */}
+                  <div className="relative h-48 overflow-hidden bg-night">
+                    <div className="map-grid absolute inset-0 opacity-30" />
+
+                    {p.kind === "dashboard" && (
+                      <div className="absolute inset-4 flex flex-col overflow-hidden rounded-lg border border-[var(--hairline-dark)] bg-forest/90 shadow-xl transition-transform duration-500 group-hover:scale-[1.03]">
+                        <div className="flex items-center gap-1.5 border-b border-[var(--hairline-dark)] px-3 py-2">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#ff5f57]" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#febc2e]" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#28c840]" />
+                        </div>
+                        <div className="grid flex-1 grid-cols-3 gap-2 p-3">
+                          <div className="col-span-3 grid grid-cols-3 gap-2">
+                            {["Orders", "Riders", "Revenue"].map((l) => (
+                              <div key={l} className="rounded-md bg-night/70 p-2">
+                                <p className="text-[7px] uppercase tracking-wider text-fog">
+                                  {l}
+                                </p>
+                                <p className="mt-0.5 font-display text-xs font-bold text-mint">
+                                  ●●●
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                          <div className="col-span-3 flex items-end gap-1 rounded-md bg-night/70 p-2">
+                            {[8, 14, 10, 18, 22, 16, 26].map((h, bi) => (
+                              <span
+                                key={bi}
+                                className="w-full rounded-t-sm bg-green"
+                                style={{ height: `${h}px` }}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {p.kind === "app" && (
+                      <div className="absolute bottom-0 right-8 w-28 -rotate-3 rounded-t-2xl border border-b-0 border-[var(--hairline-dark)] bg-forest/95 p-2 shadow-xl transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:rotate-0">
+                        <div className="flex items-center justify-between">
+                          <span className="h-1.5 w-8 rounded-full bg-paper/25" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-mint" />
+                        </div>
+                        <div className="mt-2 h-14 rounded-md bg-gradient-to-br from-green/35 to-night" />
+                        <div className="mt-1.5 space-y-1">
+                          <span className="block h-4 rounded bg-night/70" />
+                          <span className="block h-4 rounded bg-night/70" />
+                        </div>
+                      </div>
+                    )}
+
+                    {p.kind === "web" && (
+                      <div className="absolute inset-4 overflow-hidden rounded-lg border border-[var(--hairline-dark)] bg-forest/90 shadow-xl transition-transform duration-500 group-hover:scale-[1.03]">
+                        <div className="flex items-center gap-1.5 border-b border-[var(--hairline-dark)] px-3 py-2">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#ff5f57]" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#febc2e]" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#28c840]" />
+                          <span className="ml-2 h-1.5 w-16 rounded-full bg-paper/15" />
+                        </div>
+                        <div className="space-y-2 p-3.5">
+                          <span className="block h-2.5 w-2/3 rounded-full bg-paper/25" />
+                          <span className="block h-2 w-1/2 rounded-full bg-paper/10" />
+                          <div className="mt-2 grid grid-cols-3 gap-2">
+                            <span className="h-9 rounded-md bg-night/70" />
+                            <span className="h-9 rounded-md bg-night/70" />
+                            <span className="h-9 rounded-md bg-mint/25" />
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    <span className="absolute bottom-3 left-4 font-display text-5xl font-extrabold text-paper/[0.06]">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
+
+                  {/* ---------- content ---------- */}
                   <div className="flex flex-1 flex-col p-7">
-                    <span className="self-start rounded-full bg-mint/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-green">
-                      {p.tag}
-                    </span>
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <span className="rounded-full bg-mint/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-green">
+                        {p.tag}
+                      </span>
+                      <div className="text-right">
+                        <p className="font-display text-sm font-bold text-green">
+                          {p.metric[0]}
+                        </p>
+                        <p className="text-[10px] uppercase tracking-wider text-smoke">
+                          {p.metric[1]}
+                        </p>
+                      </div>
+                    </div>
+
                     <h3 className="mt-4 font-display text-2xl font-bold">
                       {p.title}
                     </h3>
                     <p className="mt-3 flex-1 text-sm leading-relaxed text-smoke">
                       {p.desc}
                     </p>
+
+                    <div className="mt-5 flex flex-wrap gap-1.5 border-t border-[var(--hairline-light)] pt-5">
+                      {p.stack.map((s) => (
+                        <span
+                          key={s}
+                          className="rounded-full bg-mist px-2.5 py-1 text-[10px] font-bold text-smoke"
+                        >
+                          {s}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </article>
               </Reveal>
